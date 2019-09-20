@@ -23,7 +23,6 @@ int courseColorBlue = 82;
 public void setup() {
   size(600, 950);
   imgs[0] = loadImage("backgroundIMG.png"); // Change to your own images
-  imgs[1] = loadImage("image2.jpg"); // Change to your own images
   background(imgs[0]);
 
   //AVS homework information   
