@@ -1,6 +1,8 @@
 // Initialize variables
 PImage[] imgs = new PImage[12];
 
+int AVSweek = 43;
+
 int courseBoxWidth = 250;
 int courseBoxHeight = 170;
 int dateBoxWidth=240;
@@ -12,6 +14,7 @@ int courseColorGreen = 26;
 int courseColorBlue = 82;
 
 public void setup() {
+  
   //Main window
   size(600, 950);
   imgs[0] = loadImage("backgroundIMG.png");
@@ -19,14 +22,8 @@ public void setup() {
 
   //Boxes for courses
   for (int i = 0; i!=4; i++) {
-    fill(255);
-    noStroke();
-    rect(25, 130+210*i, courseBoxWidth, courseBoxHeight);
-    fill(courseColorRed, courseColorGreen, courseColorBlue);
-    textAlign(CENTER);
-    textSize(weekText);
-    text("Week 43", 150, 130+210*i+25);
-    
+    buildCourseBox(i);
+
     fill(204);
     stroke(0);
     rect(30, 170+i*courseBoxHeight+i*40, dateBoxWidth, dateBoxHeight);
@@ -39,23 +36,7 @@ public void setup() {
     noStroke();
     rect(330, 130+210*i, courseBoxWidth, courseBoxHeight);
   }
-  
-  //Next week
-  for (int i = 0; i != 5; i++){
-    fill(courseColorRed, courseColorGreen, courseColorBlue);
-    textAlign(CENTER);
-    textSize(weekText);
-    text("=>",230,155+i*courseBoxHeight+i*40);
-  }
-  
-   //Previous week week
-  for (int i = 0; i != 5; i++){
-    fill(courseColorRed, courseColorGreen, courseColorBlue);
-    textAlign(CENTER);
-    textSize(weekText);
-    text("<=",70,155+i*courseBoxHeight+i*40);
-  }
-  
+
 
   textAlign(CENTER);
   textSize(35);
@@ -119,8 +100,6 @@ public void setup() {
 }
 
 public void draw() {
-
-
 }
 
 public void mouseClicked() {
@@ -167,26 +146,14 @@ public void mouseClicked() {
   //Next week (AVS)
   else if (mouseX > 210 && mouseX < 210+50 && mouseY > 135 && mouseY < 135+25)
   {
-    fill(255);
-    noStroke();
-    rect(90,130,100,30);
-   
-    fill(courseColorRed, courseColorGreen, courseColorBlue);
-    textAlign(CENTER);
-    textSize(weekText);
-    text("Week 44", 150, 130+25);
+    AVSweek++;  
+    loadAVS(AVSweek);
   }
   //Prev week (AVS)
-  else if (mouseX > 70 && mouseX < 155+50 && mouseY > 135 && mouseY < 135+25)
+  else if (mouseX > 50 && mouseX < 55+35 && mouseY > 135 && mouseY < 135+25)
   {
-    fill(255);
-    noStroke();
-    rect(90,130,100,30);
-   
-    fill(courseColorRed, courseColorGreen, courseColorBlue);
-    textAlign(CENTER);
-    textSize(weekText);
-    text("Week 43", 150, 130+25);
+    AVSweek--;
+    loadAVS(AVSweek);
   }
 }
 
@@ -197,4 +164,62 @@ public void clearBox(int boxNum) {
   fill(0);
   textSize(16);
   textAlign(LEFT);
+}
+
+public void loadAVS(int week) {
+  switch(week) {
+  case 43:
+    buildCourseBox(0);
+    fill(204);
+    stroke(0);
+    rect(30, 170, dateBoxWidth, dateBoxHeight);
+    rect(30, 170+30, dateBoxWidth, dateBoxHeight);
+    fill(0);
+    textSize(15);
+    textAlign(LEFT);
+    text("Tirsdag d. 22/10", 37, 188);
+    text("homework", 37, 188+30);
+    break;
+  case 44:
+    buildCourseBox(0);
+    fill(204);
+    stroke(0);
+    rect(30, 170, dateBoxWidth, dateBoxHeight);
+    fill(0);
+    textSize(15);
+    textAlign(LEFT);
+    text("week 44 stuff", 37, 188);
+    break;
+  default:
+    buildCourseBox(0);
+  }
+}
+
+public void buildCourseBox(int boxNum) {
+  int i = boxNum;
+  fill(255);
+  noStroke();
+  rect(25, 130+210*i, courseBoxWidth, courseBoxHeight);
+  fill(courseColorRed, courseColorGreen, courseColorBlue);
+  textAlign(CENTER);
+  textSize(weekText);
+  text("Week "+str(AVSweek), 150, 130+210*i+25);
+
+  buildArrows(i);
+}
+
+public void buildArrows(int boxNum) {
+  int i = boxNum;
+
+  //Next week
+  fill(courseColorRed, courseColorGreen, courseColorBlue);
+  textAlign(CENTER);
+  textSize(weekText);
+  text("=>", 230, 155+i*courseBoxHeight+i*40);
+
+  //Previous week
+  fill(courseColorRed, courseColorGreen, courseColorBlue);
+  textAlign(CENTER);
+  textSize(weekText);
+  text("<=", 70, 155+i*courseBoxHeight+i*40);
 }
