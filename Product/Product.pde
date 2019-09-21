@@ -14,7 +14,7 @@ int courseColorGreen = 26;
 int courseColorBlue = 82;
 
 public void setup() {
-  
+
   //Main window
   size(600, 950);
   imgs[0] = loadImage("backgroundIMG.png");
@@ -99,8 +99,52 @@ public void setup() {
   text("homework", 37, 183+3*courseBoxHeight+125+dateBoxHeight+7);
 }
 
-public void draw() {
+void draw() {
+  if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170 && mouseY < 170+dateBoxHeight)
+  {
+    cursor(HAND);
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170+dateBoxHeight+5 && mouseY < 170+dateBoxHeight+30)
+  {
+    cursor(HAND);
+  } 
+  //GPRO
+  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+courseBoxHeight+45 && mouseY < 165+courseBoxHeight+45+dateBoxHeight)
+  {
+    cursor(HAND);
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+courseBoxHeight+50+dateBoxHeight && mouseY < 165+courseBoxHeight+45+dateBoxHeight+30)
+  {
+    cursor(HAND);
+  }
+  //PBL
+  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+2*courseBoxHeight+85 && mouseY < 165+2*courseBoxHeight+85+dateBoxHeight)
+  {
+    cursor(HAND);
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+2*courseBoxHeight+90+dateBoxHeight && mouseY < 165+2*courseBoxHeight+85+dateBoxHeight+30)
+  {
+    cursor(HAND);
+  } 
+  //Assignments
+  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 160+3*courseBoxHeight+130 && mouseY < 165+3*courseBoxHeight+125+dateBoxHeight)
+  {
+    cursor(HAND);
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 160+3*courseBoxHeight+135+dateBoxHeight && mouseY < 165+3*courseBoxHeight+125+dateBoxHeight+30)
+  {
+    cursor(HAND);
+  }
+  //Next week (AVS)
+  else if (mouseX > 210 && mouseX < 210+35 && mouseY > 135 && mouseY < 135+25)
+  {
+   cursor(HAND);
+  }
+  //Prev week (AVS)
+  else if (mouseX > 50 && mouseX < 55+35 && mouseY > 135 && mouseY < 135+25)
+  {
+    cursor(HAND);
+  } else {
+    cursor(ARROW);
+  }
 }
+
 
 public void mouseClicked() {
   //AVS
@@ -144,7 +188,7 @@ public void mouseClicked() {
     text("homework pt 2", 335, 785);
   }
   //Next week (AVS)
-  else if (mouseX > 210 && mouseX < 210+50 && mouseY > 135 && mouseY < 135+25)
+  else if (mouseX > 210 && mouseX < 210+35 && mouseY > 135 && mouseY < 135+25)
   {
     AVSweek++;  
     loadAVS(AVSweek);
