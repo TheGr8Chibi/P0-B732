@@ -26,6 +26,11 @@ public void setup() {
     textAlign(CENTER);
     textSize(weekText);
     text("Week 43", 150, 130+210*i+25);
+    
+    fill(204);
+    stroke(0);
+    rect(30, 170+i*courseBoxHeight+i*40, dateBoxWidth, dateBoxHeight);
+    rect(30, 170+i*courseBoxHeight+i*40+30, dateBoxWidth, dateBoxHeight);
   }
 
   //Boxes for information
@@ -34,6 +39,23 @@ public void setup() {
     noStroke();
     rect(330, 130+210*i, courseBoxWidth, courseBoxHeight);
   }
+  
+  //Next week
+  for (int i = 0; i != 5; i++){
+    fill(courseColorRed, courseColorGreen, courseColorBlue);
+    textAlign(CENTER);
+    textSize(weekText);
+    text("=>",230,155+i*courseBoxHeight+i*40);
+  }
+  
+   //Previous week week
+  for (int i = 0; i != 5; i++){
+    fill(courseColorRed, courseColorGreen, courseColorBlue);
+    textAlign(CENTER);
+    textSize(weekText);
+    text("<=",70,155+i*courseBoxHeight+i*40);
+  }
+  
 
   textAlign(CENTER);
   textSize(35);
@@ -50,10 +72,6 @@ public void setup() {
   text("AVS", 35, 125);
 
   //AVS dates
-  fill(204);
-  stroke(0);
-  rect(30, 170, dateBoxWidth, dateBoxHeight);
-  rect(30, 170+30, dateBoxWidth, dateBoxHeight);
   fill(0);
   textSize(15);
   textAlign(LEFT);
@@ -67,10 +85,6 @@ public void setup() {
   text("GPRO", 35, 335);
 
   //GPRO dates
-  fill(204);
-  stroke(0);
-  rect(30, 165+courseBoxHeight+45, dateBoxWidth, dateBoxHeight);
-  rect(30, 165+courseBoxHeight+45+30, dateBoxWidth, dateBoxHeight);
   fill(0);
   textSize(15);
   textAlign(LEFT);
@@ -84,10 +98,6 @@ public void setup() {
   text("PBL", 35, 545);
 
   //PBL dates
-  fill(204);
-  stroke(0);
-  rect(30, 165+2*courseBoxHeight+85, dateBoxWidth, dateBoxHeight);
-  rect(30, 165+2*courseBoxHeight+85+30, dateBoxWidth, dateBoxHeight);
   fill(0);
   textSize(15);
   textAlign(LEFT);
@@ -101,10 +111,6 @@ public void setup() {
   text("ASSINGMENTS", 35, 755);
 
   //Assignment dates
-  fill(204);
-  stroke(0);
-  rect(30, 165+3*courseBoxHeight+125, dateBoxWidth, dateBoxHeight);
-  rect(30, 165+3*courseBoxHeight+125+30, dateBoxWidth, dateBoxHeight);
   fill(0);
   textSize(15);
   textAlign(LEFT);
@@ -158,6 +164,30 @@ public void mouseClicked() {
     clearBox(3);
     text("homework pt 2", 335, 785);
   }
+  //Next week (AVS)
+  else if (mouseX > 210 && mouseX < 210+50 && mouseY > 135 && mouseY < 135+25)
+  {
+    fill(255);
+    noStroke();
+    rect(90,130,100,30);
+   
+    fill(courseColorRed, courseColorGreen, courseColorBlue);
+    textAlign(CENTER);
+    textSize(weekText);
+    text("Week 44", 150, 130+25);
+  }
+  //Prev week (AVS)
+  else if (mouseX > 70 && mouseX < 155+50 && mouseY > 135 && mouseY < 135+25)
+  {
+    fill(255);
+    noStroke();
+    rect(90,130,100,30);
+   
+    fill(courseColorRed, courseColorGreen, courseColorBlue);
+    textAlign(CENTER);
+    textSize(weekText);
+    text("Week 43", 150, 130+25);
+  }
 }
 
 public void clearBox(int boxNum) {
@@ -166,4 +196,5 @@ public void clearBox(int boxNum) {
   rect(330, 130+210*boxNum, courseBoxWidth, courseBoxHeight);
   fill(0);
   textSize(16);
+  textAlign(LEFT);
 }
