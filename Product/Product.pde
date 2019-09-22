@@ -56,8 +56,7 @@ public void setup() {
   fill(0);
   textSize(15);
   textAlign(LEFT);
-  text("Tirsdag d. 22/10", 37, 188);
-  text("homework", 37, 188+30);
+  text("Tirsdag d. 22/10, 08:15-12:00", 37, 188);
 
   //GPRO schedule
   fill(courseColorRed, courseColorGreen, courseColorBlue);
@@ -69,8 +68,8 @@ public void setup() {
   fill(0);
   textSize(15);
   textAlign(LEFT);
-  text("GPROO", 37, 183+courseBoxHeight+45);
-  text("homework", 37, 183+courseBoxHeight+30+45);
+  text("Tirsdag d. 22/10, 12:30-16:15", 37, 183+courseBoxHeight+45);
+  text("Onsdag d. 23/10, 12:30-16:15", 37, 183+courseBoxHeight+30+45);
 
   //PBL schedule
   fill(courseColorRed, courseColorGreen, courseColorBlue);
@@ -82,8 +81,7 @@ public void setup() {
   fill(0);
   textSize(15);
   textAlign(LEFT);
-  text("Tirsdag d. 22/10, xx:xx-xx:xx", 37, 183+2*courseBoxHeight+85);
-  text("homework", 37, 183+2*courseBoxHeight+75+40);
+  text("Mandag d. 21/10, 08:15-12:00", 37, 183+2*courseBoxHeight+85);
 
   //Assignments schedule
   fill(courseColorRed, courseColorGreen, courseColorBlue);
@@ -95,50 +93,39 @@ public void setup() {
   fill(0);
   textSize(15);
   textAlign(LEFT);
-  text("Tirsdag d. 22/10, xx:xx-xx:xx", 37, 183+3*courseBoxHeight+125);
-  text("homework", 37, 183+3*courseBoxHeight+125+dateBoxHeight+7);
+  text("slettes", 37, 183+3*courseBoxHeight+125);
 }
 
 void draw() {
-  if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170 && mouseY < 170+dateBoxHeight)
-  {
+  if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170 && mouseY < 170+dateBoxHeight) {
     cursor(HAND);
-  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170+dateBoxHeight+5 && mouseY < 170+dateBoxHeight+30)
-  {
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170+dateBoxHeight+5 && mouseY < 170+dateBoxHeight+30) {
     cursor(HAND);
   } 
   //GPRO
-  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+courseBoxHeight+45 && mouseY < 165+courseBoxHeight+45+dateBoxHeight)
-  {
+  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+courseBoxHeight+45 && mouseY < 165+courseBoxHeight+45+dateBoxHeight) {
     cursor(HAND);
-  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+courseBoxHeight+50+dateBoxHeight && mouseY < 165+courseBoxHeight+45+dateBoxHeight+30)
-  {
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+courseBoxHeight+50+dateBoxHeight && mouseY < 165+courseBoxHeight+45+dateBoxHeight+30) {
     cursor(HAND);
   }
   //PBL
-  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+2*courseBoxHeight+85 && mouseY < 165+2*courseBoxHeight+85+dateBoxHeight)
-  {
+  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+2*courseBoxHeight+85 && mouseY < 165+2*courseBoxHeight+85+dateBoxHeight) {
     cursor(HAND);
-  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+2*courseBoxHeight+90+dateBoxHeight && mouseY < 165+2*courseBoxHeight+85+dateBoxHeight+30)
-  {
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+2*courseBoxHeight+90+dateBoxHeight && mouseY < 165+2*courseBoxHeight+85+dateBoxHeight+30) {
     cursor(HAND);
   } 
   //Assignments
-  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 160+3*courseBoxHeight+130 && mouseY < 165+3*courseBoxHeight+125+dateBoxHeight)
-  {
+  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 160+3*courseBoxHeight+130 && mouseY < 165+3*courseBoxHeight+125+dateBoxHeight) {
     cursor(HAND);
-  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 160+3*courseBoxHeight+135+dateBoxHeight && mouseY < 165+3*courseBoxHeight+125+dateBoxHeight+30)
-  {
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 160+3*courseBoxHeight+135+dateBoxHeight && mouseY < 165+3*courseBoxHeight+125+dateBoxHeight+30) {
     cursor(HAND);
   }
   //Next week (AVS)
-  else if (mouseX > 210 && mouseX < 210+35 && mouseY > 135 && mouseY < 135+25)
-  {
-   cursor(HAND);
+  else if (mouseX > 210 && mouseX < 210+35 && mouseY > 135 && mouseY < 135+25) {
+    cursor(HAND);
   }
   //Prev week (AVS)
-  else if (mouseX > 50 && mouseX < 55+35 && mouseY > 135 && mouseY < 135+25)
-  {
+  else if (mouseX > 50 && mouseX < 55+35 && mouseY > 135 && mouseY < 135+25) {
     cursor(HAND);
   } else {
     cursor(ARROW);
@@ -148,54 +135,57 @@ void draw() {
 
 public void mouseClicked() {
   //AVS
-  if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170 && mouseY < 170+dateBoxHeight)
-  {
+  if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170 && mouseY < 170+dateBoxHeight) {
     clearBox(0);
-    text("Tirsdag d. 22/10,", 335, 155);
-  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170+dateBoxHeight+5 && mouseY < 170+dateBoxHeight+30)
-  {
+    text("Tirsdag d. 22/10", 390, 155);
+    textSize(13);
+    text("No homework assigned", 385, 200);
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170+dateBoxHeight+5 && mouseY < 170+dateBoxHeight+30) {
     clearBox(0);
-    text("homework", 335, 155);
+    text("slettes", 335, 155);
   } 
   //GPRO
-  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+courseBoxHeight+45 && mouseY < 165+courseBoxHeight+45+dateBoxHeight)
-  {
+  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+courseBoxHeight+45 && mouseY < 165+courseBoxHeight+45+dateBoxHeight) {
     clearBox(1);
-    text("homework", 335, 365);
-  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+courseBoxHeight+50+dateBoxHeight && mouseY < 165+courseBoxHeight+45+dateBoxHeight+30)
-  {
+    text("Tirsdag d. 22/10", 390, 365);
+    textSize(13);
+    text("Read: Chapter 9 + section 13-12", 350, 415);
+    text("Tutorials: Arrays", 400, 440);
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+courseBoxHeight+50+dateBoxHeight && mouseY < 165+courseBoxHeight+45+dateBoxHeight+30) {
     clearBox(1);
-    text("homework again", 335, 365);
+    text("Onsdag d. 23/10", 390, 365);
+    textSize(13);
+    text("Read: Chapter 12 and 15", 380, 415);
+    text("Tutorials: Transformations", 375, 440);
   }
   //PBL
-  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+2*courseBoxHeight+85 && mouseY < 165+2*courseBoxHeight+85+dateBoxHeight)
-  {
+  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+2*courseBoxHeight+85 && mouseY < 165+2*courseBoxHeight+85+dateBoxHeight) {
     clearBox(2);
-    text("homework", 335, 575);
-  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+2*courseBoxHeight+90+dateBoxHeight && mouseY < 165+2*courseBoxHeight+85+dateBoxHeight+30)
-  {
+    text("Mandag d. 21/10", 390, 575);
+    textSize(13);
+    text("No homework assigned", 385, 620);
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 165+2*courseBoxHeight+90+dateBoxHeight && mouseY < 165+2*courseBoxHeight+85+dateBoxHeight+30) {
     clearBox(2);
-    text("homework pt 2", 335, 575);
+    text("slettes", 335, 575);
   } 
+  
   //Assignments
-  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 160+3*courseBoxHeight+130 && mouseY < 165+3*courseBoxHeight+125+dateBoxHeight)
-  {
+  else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 160+3*courseBoxHeight+130 && mouseY < 165+3*courseBoxHeight+125+dateBoxHeight) {
     clearBox(3);
-    text("homework", 335, 785);
-  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 160+3*courseBoxHeight+135+dateBoxHeight && mouseY < 165+3*courseBoxHeight+125+dateBoxHeight+30)
-  {
+    text("slettes", 335, 785);
+  } else if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 160+3*courseBoxHeight+135+dateBoxHeight && mouseY < 165+3*courseBoxHeight+125+dateBoxHeight+30) {
     clearBox(3);
-    text("homework pt 2", 335, 785);
+    text("slettes", 335, 785);
   }
+  
+  
   //Next week (AVS)
-  else if (mouseX > 210 && mouseX < 210+35 && mouseY > 135 && mouseY < 135+25)
-  {
+  else if (mouseX > 210 && mouseX < 210+35 && mouseY > 135 && mouseY < 135+25) {
     AVSweek++;  
     loadAVS(AVSweek);
   }
   //Prev week (AVS)
-  else if (mouseX > 50 && mouseX < 55+35 && mouseY > 135 && mouseY < 135+25)
-  {
+  else if (mouseX > 50 && mouseX < 55+35 && mouseY > 135 && mouseY < 135+25) {
     AVSweek--;
     loadAVS(AVSweek);
   }
@@ -221,7 +211,7 @@ public void loadAVS(int week) {
     fill(0);
     textSize(15);
     textAlign(LEFT);
-    text("Tirsdag d. 22/10", 37, 188);
+    text("Tirsdag d. 22/10, 08:15-12:00", 37, 188);
     text("homework", 37, 188+30);
     break;
   case 44:
