@@ -47,7 +47,7 @@ public void setup() {
   textAlign(CENTER);
   textSize(35);
   fill(255);
-  text("Headline", width/2, 50); 
+  text("Moodle Plus", width/2, 50); 
   textSize(16);
   fill(120);
   text("B372", width/2, 940);
@@ -156,7 +156,6 @@ public void mouseClicked() {
     clearBox(3);
     if (Asweek == 43) {
     } else {
-      println("sko");
       text("Monday 28/10, 14:00", 375, 785);
       textSize(13);
       text("Hug 10 random people", 385, 840);
