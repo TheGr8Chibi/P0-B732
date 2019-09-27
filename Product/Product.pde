@@ -1,6 +1,4 @@
 // Initialize variables
-PImage[] imgs = new PImage[12];
-
 int AVSweek = 43;
 int GPROweek = 43;
 int PBLweek = 43;
@@ -17,16 +15,23 @@ int courseColorGreen = 26;
 int courseColorBlue = 82;
 
 public void setup() {
-
   //Main window
   size(600, 950);
-  imgs[0] = loadImage("backgroundIMG.png");
-  background(imgs[0]);
+  PImage imgs = loadImage("backgroundIMG.png");
+  background(imgs);
+
+  //Heading
+  textAlign(CENTER);
+  textSize(35);
+  fill(255);
+  text("Moodle Plus", width/2, 50); 
+  textSize(16);
+  fill(120);
+  text("B372", width/2, 940);
 
   //Boxes for courses
   for (int i = 0; i!=4; i++) {
     buildCourseBox(i, AVSweek);
-
     fill(204);
     stroke(0);
     rect(30, 170+i*courseBoxHeight+i*40, dateBoxWidth, dateBoxHeight);
@@ -39,38 +44,32 @@ public void setup() {
     noStroke();
     rect(330, 130+210*i, courseBoxWidth, courseBoxHeight);
   }
+
+  //Load data for each course
   loadAVS(AVSweek);
   loadGPRO(GPROweek);
   loadPBL(PBLweek);
   loadAssignments(Asweek);
 
-  textAlign(CENTER);
-  textSize(35);
-  fill(255);
-  text("Moodle Plus", width/2, 50); 
-  textSize(16);
-  fill(120);
-  text("B372", width/2, 940);
-
-  //AVS schedule
+  //AVS schedule label
   fill(courseColorRed, courseColorGreen, courseColorBlue);
   textAlign(LEFT);
   textSize(courseText);
   text("AVS", 35, 125);
 
-  //GPRO schedule
+  //GPRO schedule label
   fill(courseColorRed, courseColorGreen, courseColorBlue);
   textAlign(LEFT);
   textSize(courseText);
   text("GPRO", 35, 335);
 
-  //PBL schedule
+  //PBL schedule label
   fill(courseColorRed, courseColorGreen, courseColorBlue);
   textAlign(LEFT);
   textSize(courseText);
   text("PBL", 35, 545);
 
-  //Assignments schedule
+  //Assignments schedule label
   fill(courseColorRed, courseColorGreen, courseColorBlue);
   textAlign(LEFT);
   textSize(courseText);
@@ -78,10 +77,11 @@ public void setup() {
 }
 
 void draw() {
+  //Check if mouse hovers over click-able object
   checkMouseHover();
 }
 
-
+//Checks if mouse is clicked on objects
 public void mouseClicked() {
   //AVS
   if (mouseX > 30 && mouseX < 30+dateBoxWidth && mouseY > 170 && mouseY < 170+dateBoxHeight && AVSweek <= 44 && AVSweek >= 43)
@@ -162,56 +162,55 @@ public void mouseClicked() {
     }
   }
 
-
-
-//Next week (AVS)
-else if (mouseX > 210 && mouseX < 210+35 && mouseY > 135 && mouseY < 135+25) {
-  AVSweek++;  
-  loadAVS(AVSweek);
-}
-//Prev week (AVS)
-else if (mouseX > 50 && mouseX < 55+35 && mouseY > 135 && mouseY < 135+25) {
-  AVSweek--;
-  loadAVS(AVSweek);
-}
-//Next week (GPRO)
-else if (mouseX > 210 && mouseX < 210+35 && mouseY > 155+courseBoxHeight && mouseY < 155+courseBoxHeight+40)
-{
-  GPROweek++;  
-  loadGPRO(GPROweek);
-}
-//Prev week (GPRO)
-else if (mouseX > 50 && mouseX < 55+35 && mouseY > 155+courseBoxHeight && mouseY < 155+courseBoxHeight+40)
-{
-  GPROweek--;
-  loadGPRO(GPROweek);
-}
-//Next week (PBL)
-else if (mouseX > 210 && mouseX < 210+35 && mouseY > 155+2*courseBoxHeight+60 && mouseY < 155+2*courseBoxHeight+80)
-{
-  PBLweek++;  
-  loadPBL(PBLweek);
-}
-//Prev week (PBL)
-else if (mouseX > 50 && mouseX < 55+35 && mouseY > 155+2*courseBoxHeight+60 && mouseY < 155+2*courseBoxHeight+80)
-{
-  PBLweek--;
-  loadPBL(PBLweek);
-}
-//Next week (Assignments)
-else if (mouseX > 210 && mouseX < 210+35 && mouseY > 155+3*courseBoxHeight+100 && mouseY < 155+3*courseBoxHeight+125)
-{
-  Asweek++;  
-  loadAssignments(Asweek);
-}
-//Prev week (Assignments)
-else if (mouseX > 50 && mouseX < 55+35 && mouseY > 155+3*courseBoxHeight+100 && mouseY < 155+3*courseBoxHeight+125)
-{
-  Asweek--;
-  loadAssignments(Asweek);
-}
+  //Next week (AVS)
+  else if (mouseX > 210 && mouseX < 210+35 && mouseY > 135 && mouseY < 135+25) {
+    AVSweek++;  
+    loadAVS(AVSweek);
+  }
+  //Prev week (AVS)
+  else if (mouseX > 50 && mouseX < 55+35 && mouseY > 135 && mouseY < 135+25) {
+    AVSweek--;
+    loadAVS(AVSweek);
+  }
+  //Next week (GPRO)
+  else if (mouseX > 210 && mouseX < 210+35 && mouseY > 155+courseBoxHeight && mouseY < 155+courseBoxHeight+40)
+  {
+    GPROweek++;  
+    loadGPRO(GPROweek);
+  }
+  //Prev week (GPRO)
+  else if (mouseX > 50 && mouseX < 55+35 && mouseY > 155+courseBoxHeight && mouseY < 155+courseBoxHeight+40)
+  {
+    GPROweek--;
+    loadGPRO(GPROweek);
+  }
+  //Next week (PBL)
+  else if (mouseX > 210 && mouseX < 210+35 && mouseY > 155+2*courseBoxHeight+60 && mouseY < 155+2*courseBoxHeight+80)
+  {
+    PBLweek++;  
+    loadPBL(PBLweek);
+  }
+  //Prev week (PBL)
+  else if (mouseX > 50 && mouseX < 55+35 && mouseY > 155+2*courseBoxHeight+60 && mouseY < 155+2*courseBoxHeight+80)
+  {
+    PBLweek--;
+    loadPBL(PBLweek);
+  }
+  //Next week (Assignments)
+  else if (mouseX > 210 && mouseX < 210+35 && mouseY > 155+3*courseBoxHeight+100 && mouseY < 155+3*courseBoxHeight+125)
+  {
+    Asweek++;  
+    loadAssignments(Asweek);
+  }
+  //Prev week (Assignments)
+  else if (mouseX > 50 && mouseX < 55+35 && mouseY > 155+3*courseBoxHeight+100 && mouseY < 155+3*courseBoxHeight+125)
+  {
+    Asweek--;
+    loadAssignments(Asweek);
+  }
 }
 
+//Re-draw info box
 public void clearBox(int boxNum) {
   fill(255);
   noStroke();
@@ -221,6 +220,7 @@ public void clearBox(int boxNum) {
   textAlign(LEFT);
 }
 
+//Load AVS data by week
 public void loadAVS(int week) {
   switch(week) {
   case 43:
@@ -248,6 +248,7 @@ public void loadAVS(int week) {
   }
 }
 
+//Load GPRO data by week
 public void loadGPRO(int week) {
   switch(week) {
   case 43:
@@ -279,6 +280,7 @@ public void loadGPRO(int week) {
   }
 }
 
+//Load PBL data by week
 public void loadPBL(int week) {
   switch(week) {
   case 43:
@@ -310,6 +312,7 @@ public void loadPBL(int week) {
   }
 }
 
+//Load assignment data by week
 public void loadAssignments(int week) {
   switch(week) {
   case 44:
@@ -327,6 +330,7 @@ public void loadAssignments(int week) {
   }
 }
 
+//Draw course boxes
 public void buildCourseBox(int boxNum, int week) {
   int i = boxNum;
   fill(255);
@@ -341,6 +345,7 @@ public void buildCourseBox(int boxNum, int week) {
   buildArrows(i);
 }
 
+//Draw arrows for changing weeks
 public void buildArrows(int boxNum) {
   int i = boxNum;
 
